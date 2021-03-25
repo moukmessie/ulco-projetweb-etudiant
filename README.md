@@ -8,6 +8,7 @@ Développement d'une application simplifiée de e-commerce.
 
 Nom, Prénom
 
-## Remise des travaux
+## Liens utiles
 
-Référencez vos travaux ici : [GDrive](https://docs.google.com/spreadsheets/d/16ydvylkxeVydqQASeoj1vYBUgb6zJ1EWZZEMHhHzSQ8/edit?usp=sharing)
+- [Sujet](https://florian-lepretre.herokuapp.com/teaching/projetweb/sujet/)
+- [Dépôts des étudiants](https://docs.google.com/spreadsheets/d/16ydvylkxeVydqQASeoj1vYBUgb6zJ1EWZZEMHhHzSQ8/edit?usp=sharing)
