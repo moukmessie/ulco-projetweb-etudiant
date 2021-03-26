@@ -6,7 +6,7 @@ Développement d'une application simplifiée de e-commerce.
 
 ## Auteur
 
- #####MOUKIMOU M'PIKA  Messie G
+ #### MOUKIMOU M'PIKA  Messie G
 
 ## Liens utiles
 
