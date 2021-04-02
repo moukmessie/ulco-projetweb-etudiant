@@ -18,12 +18,14 @@ class Template {
 
 <body>
 
-  <!-- TODO: Inclure le nav ici -->
+  <!-- Inclusion du nav -->
+  <?php include "commons/nav.php"?>
 
   <!-- Inclusion du module à afficher -->
   <?php include "modules/" . $params["module"]; ?>
 
-  <!-- TODO: Inclure le footer ici -->
+  <!--Inclusion du footer  -->
+    <?php include "commons/footer.php"?>
 
 </body>
 

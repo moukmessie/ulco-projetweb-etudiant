@@ -78,7 +78,7 @@ class Router
 
     // Clean GET tokens
     $pos_get = strpos($uri_full, "?");
-    $uri_no_get = substr($uri_full, 0, $pos_get != false ? $pos_get : null);
+    $uri_no_get = substr($uri_full, 0, $pos_get != false ? $pos_get : 999);
     
     // Ok for routing
     $uri = "/" . $uri_no_get;
