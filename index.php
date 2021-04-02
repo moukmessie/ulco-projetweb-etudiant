@@ -12,6 +12,10 @@ $router = new router\Router(basename(__DIR__));
 // GET "/"
 $router->get('/', 'controller\IndexController@index');
 
+//store
+$router->get('/store','controller\StoreController@store');
+$router->get('/store/{:num}','controller\StoreController@product');
+
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');
 
