@@ -1,3 +1,4 @@
+
 <footer>
     <img style="width: 32px" src="/public/images/avatar.png" alt="3">
     <p>Projet</p>

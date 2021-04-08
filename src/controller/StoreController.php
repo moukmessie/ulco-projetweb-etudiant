@@ -2,6 +2,9 @@
 
 namespace controller;
 
+use http\Exception\UnexpectedValueException;
+use mysql_xdevapi\Exception;
+
 class StoreController {
 
   public function store(): void
@@ -29,23 +32,21 @@ class StoreController {
   {
       $product = \model\StoreModel::infoProduct($id);
 
+      if( $product==null){
+          header("Location: /store");
+          exit();
 
-           //  if (mysql_num_rows($product)!==0) {
-                  // Variables à transmettre à la vue
-                 $params = array(
-                      "title" => "Store",
-                      "module" => "product.php",
-                      "product" => $product
-                  );
+      }
+
+      $params = array(
+          "title" => "Info product",
+          "module" => "product.php",
+          "product" => $product
+      );
 
 
-                  //  rendu du Template avec le module"
-                  \view\Template::render($params);
-
-            //  } else {
-          //    header("Location: /store");
-          //    exit();
-        //    }
+      //  rendu du Template avec le module"
+      \view\Template::render($params);
 
 
   }

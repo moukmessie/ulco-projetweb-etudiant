@@ -44,9 +44,9 @@
                 communauté LEGO sur les réseaux sociaux.
             </p>
             <p>
-                <a href="/store">Facebook</a>
-                <a href="/store">Instagram</a>
-                <a href="/store">YouTube</a>
+                <a target="_blank" href="https://fr-fr.facebook.com/LEGO/">Facebook</a>
+                <a target="_blank" href="https://twitter.com/lego_group">Twitter</a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCP-Ng5SXUEt0VE-TXqRdL6g">YouTube</a>
 
             </p>
         </div>
