@@ -14,7 +14,8 @@ class AccountModel
             $sql= "SELECT '$mail' FROM account";
             //Execution sql request
             $request= $db->prepare($sql);
-           if ($request->execute()!= null){
+            $request->execute();
+           if ($request->fetchAll()== null){
                 return true;
             }
         }
@@ -41,7 +42,7 @@ class AccountModel
         return false;
     }
 
-    static function login($mail, $password):array
+    static function login($mail, $password)
     {
 
         //connexion to database
@@ -50,9 +51,9 @@ class AccountModel
         //add sql request
         $sql= "SELECT * FROM account WHERE account.mail='$mail' ";
         $request = $db->prepare($sql);
-        $request->execute();
+        $request->execute(['mail'=>$mail,'password'=>$password]);
 
-        return $request->fetchAll();
+        return $request->fetch();
 
     }
 }

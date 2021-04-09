@@ -16,8 +16,9 @@
            <?=
            $_SESSION['login']['firstname'] ." ".$_SESSION['login']['lastname']?>
        </a>
+
        <a href="/panier">PANIER</a>
-       <a href="/logout">DÉCONNEXION</a>
+       <a href="/account/logout">DÉCONNEXION</a>
 
    <?php else: ?>
        <a class="account" href="/account">

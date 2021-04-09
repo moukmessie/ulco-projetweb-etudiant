@@ -23,6 +23,8 @@ $router->get('/account','controller\AccountController@account');
 $router->post('/account/login','controller\AccountController@login');
 $router->post('/account/signin','controller\AccountController@signin');
 
+$router->get('/account/logout','controller\AccountController@logout');
+
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');
 

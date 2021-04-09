@@ -42,11 +42,10 @@ class AccountController
 
         $login=\model\AccountModel::login($mail,$password);
 
+       password_verify($password,$login['password']);
+       //var_dump( password_verify($password,$login['password']));
 
-
-       var_dump( password_verify($password,$login['password']));
-
-      /*  if($login !=null ){
+       if($login !=false && password_verify($password,$login['password'])){
             $user=array(
                 "id"=>$login['id'],
                 "lastname"=>$login['lastname'],
@@ -58,11 +57,19 @@ class AccountController
             header("Location: /store");
             exit();
         }else{
+
             header("Location: /account");
             exit();
 
-        }*/
+        }
 
+   }
+
+   public function logout(){
+        session_destroy();
+
+        header("Location: /account");
+        exit();
    }
 
 }
