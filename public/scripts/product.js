@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",function (){
+
     //image
     let thumbnail = document.getElementsByClassName('thumbnail')
     // let activeImages = document.getElementsByClassName('activ')
@@ -39,4 +39,3 @@ document.addEventListener("DOMContentLoaded",function (){
     })
 
 
-})

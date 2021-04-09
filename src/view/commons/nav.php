@@ -1,6 +1,9 @@
 
-<?php $logger= empty($_SESSION['login'])?>
-<nav>
+
+<nav><?php $logger= isset($_SESSION['login']);
+
+
+    ?>
         <img src="/public/images/logo.jpeg" alt="logo">
 
     <a href="/">Accueil</a>
@@ -10,7 +13,8 @@
        <a class="account" href="/profil">
            <img src="/public/images/avatar.png" alt="avatar">
 
-           <?= $_SESSION['login']['firstname'] ." ".$_SESSION['login']['lastname']?>
+           <?=
+           $_SESSION['login']['firstname'] ." ".$_SESSION['login']['lastname']?>
        </a>
        <a href="/panier">PANIER</a>
        <a href="/logout">DÉCONNEXION</a>

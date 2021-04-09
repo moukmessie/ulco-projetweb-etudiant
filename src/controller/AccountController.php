@@ -19,7 +19,7 @@ class AccountController
 
    public function signin(){
         //forms signin
-        if(empty(($_POST['userlastname']) && ($_POST['userfirstname']) && ($_POST['usermail']) && ($_POST['userpass']))) {
+
         $lastsname = trim(htmlspecialchars($_POST['userlastname']));
         $firstsname = trim(htmlspecialchars($_POST['userfirstname']));
         $mail = trim(htmlspecialchars($_POST['usermail']));
@@ -31,7 +31,7 @@ class AccountController
                 header("Location: /account");
                 exit();
             }
-        }
+
     }
 
    public function login():void
@@ -40,10 +40,13 @@ class AccountController
         $mail=trim(htmlspecialchars($_POST['usermail']));
        $password =trim(htmlspecialchars($_POST['userpass']));
 
-
         $login=\model\AccountModel::login($mail,$password);
 
-        if($login !=null){
+
+
+       var_dump( password_verify($password,$login['password']));
+
+      /*  if($login !=null ){
             $user=array(
                 "id"=>$login['id'],
                 "lastname"=>$login['lastname'],
@@ -58,7 +61,7 @@ class AccountController
             header("Location: /account");
             exit();
 
-        }
+        }*/
 
    }
 

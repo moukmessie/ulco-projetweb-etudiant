@@ -1,6 +1,7 @@
 <?php
 //session starting
 session_start();
+
 /** Initialisation de l'autoloading et du router ******************************/
 
 require('src/Autoloader.php');

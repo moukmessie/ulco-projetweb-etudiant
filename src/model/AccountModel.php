@@ -7,8 +7,16 @@ class AccountModel
     static function check($firstname, $lastname, $mail, $password): bool
     {
 
-        if (strlen($firstname)>=2 and strlen($lastname )>=2 and filter_var($mail,FILTER_VALIDATE_EMAIL) and strlen($password)>=6){
-            return true;
+        if (strlen($firstname)>=2 && strlen($lastname )>=2 && filter_var($mail,FILTER_VALIDATE_EMAIL) && strlen($password)>=6){
+            //connexion to database
+            $db = \model\Model::connect();
+            //search sql request
+            $sql= "SELECT '$mail' FROM account";
+            //Execution sql request
+            $request= $db->prepare($sql);
+           if ($request->execute()!= null){
+                return true;
+            }
         }
         return false;
     }
@@ -19,13 +27,14 @@ class AccountModel
 
             //connexion to database
             $db = \model\Model::connect();
-           $password= password_hash($password);
+           $pass= password_hash($password,PASSWORD_DEFAULT);
             //add sql request
-            $sql= "INSERT INTO account (id,firstname,lastname,mail,password) VALUES ('','$firstname','$lastname','$mail','$password')";
+            $sql= "INSERT INTO account (id,firstname,lastname,mail,password) VALUES ('','$firstname','$lastname','$mail','$pass')";
 
             //Execution sql request
             $request= $db->prepare($sql);
-            $request->execute(array($firstname, $lastname, $mail, $password));
+            $request->execute();
+
             return true;
         }
 
@@ -39,10 +48,11 @@ class AccountModel
         $db = \model\Model::connect();
 
         //add sql request
-        $sql= "SELECT * FROM account WHERE account.mail='$mail' AND , password_verfy($password,'account.password')";
+        $sql= "SELECT * FROM account WHERE account.mail='$mail' ";
         $request = $db->prepare($sql);
         $request->execute();
 
         return $request->fetchAll();
+
     }
 }
