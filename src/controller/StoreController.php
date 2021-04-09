@@ -32,21 +32,21 @@ class StoreController {
   {
       $product = \model\StoreModel::infoProduct($id);
 
-      if( $product==null){
-          header("Location: /store");
-          exit();
+      if( $product!=null){
+          $params = array(
+              "title" => "Info product",
+              "module" => "product.php",
+              "product" => $product
+          );
+
+
+          //  rendu du Template avec le module"
+          \view\Template::render($params);
 
       }
 
-      $params = array(
-          "title" => "Info product",
-          "module" => "product.php",
-          "product" => $product
-      );
-
-
-      //  rendu du Template avec le module"
-      \view\Template::render($params);
+      header("Location: /store");
+      exit();
 
 
   }
