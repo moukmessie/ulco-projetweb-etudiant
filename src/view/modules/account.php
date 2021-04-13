@@ -15,7 +15,7 @@
 
 </form>
 
-<form class="account-signin" method="post" action="/account/signin">
+<form class="account-signin" method="post" action="/account/signin" id="loginForm">
 
   <h2>Inscription</h2>
   <h3>Crée ton compte rapidement en remplissant le formulaire ci-dessous.</h3>
