@@ -27,10 +27,10 @@
   <input type="text" name="userfirstname" placeholder="Prénom" />
 
   <p>Adresse mail</p>
-  <input type="text" name="usermail" placeholder="Adresse mail" />
+  <input type="text" name="usermail" placeholder="Adresse mail" id="pass1" />
 
   <p>Mot de passe</p>
-  <input type="password" name="userpass" placeholder="Mot de passe" />
+  <input type="password" name="userpass" placeholder="Mot de passe" id="pass2"/>
 
   <p>Répéter le mot de passe</p>
   <input type="password" name="userpass" placeholder="Mot de passe" />
