@@ -26,8 +26,8 @@ class AccountController
         $password = trim(htmlspecialchars($_POST['userpass']));
 
         $signin = \model\AccountModel::signin($firstsname, $lastsname, $mail, $password);
-
-            if ($signin) {
+      //var_dump($signin);
+           if ($signin) {
                 header("Location: /account?status=signin_success");
 
             }else{

@@ -49,6 +49,15 @@
         <div class="product-comments">
             <h2>Avis</h2>
             <p>Il n'y pas d'avis pour ce produit.</p>
+            <?php if (!empty($_SESSION['login'])) :?>
+            <hr>
+            <form method="post" action="postComment/<?= $params['product']['id']?>" >
+                <input type="text" name="comment">
+                <br>
+                <input type="submit" value="commenter" style="margin: 5px ">
+            </form>
+            <?php endif;?>
+
         </div>
     </div>
 
