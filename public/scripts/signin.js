@@ -36,7 +36,7 @@ let pass2= form.userpass[1].addEventListener('change',function (){
 //Soumission du formulaire
 form.addEventListener('submit', function (e){
     e.preventDefault();
-    if (validMail(form.usermail) && validPass(form.userpass[0])){
+    if (validMail(form.usermail)){
         form.submit();
     }
 });
@@ -52,20 +52,24 @@ const validMail = function (inputMail){
     if (mailRegExp.test(inputMail.value)){
         inputMail.classList.remove('invalid');
        inputMail.classList.add('valid');
+        inputMail.previousElementSibling.classList.remove('invalid');
+        inputMail.previousElementSibling.classList.add('valid');
        return true;
     }else {
         inputMail.classList.remove('valid');
       inputMail.classList.add('invalid');
+        inputMail.previousElementSibling.classList.remove('valid');
+        inputMail.previousElementSibling.classList.add('invalid');
       return  false;
     }
 }
 
 //*********************VALIDATION DU USER PASS******************
 const validPass = function (inputPass){
-    let msg;
+    let msg="";
     let valid=false;
     //Au moins 6 caractères
-    if (inputPass.value.length <=6){
+    if (inputPass.value.length <=5){
         msg='Le mot de passe doit contenir au moins 6 caractères';
     }
     //Au moins 1 maj
@@ -82,14 +86,19 @@ const validPass = function (inputPass){
     }else {
         valid=true;
     }
-
+inputPass.nextElementSibling.innerHTML=msg;
     if (valid){
         inputPass.classList.remove('invalid');
         inputPass.classList.add('valid');
+        inputPass.previousElementSibling.classList.remove('invalid');
+        inputPass.previousElementSibling.classList.add('valid');
+
         return true;
     }else {
         inputPass.classList.remove('valid');
         inputPass.classList.add('invalid');
+        inputPass.previousElementSibling.classList.remove('valid');
+        inputPass.previousElementSibling.classList.add('invalid');
         return false;}}
 
 //*********************VALIDATION DU USERNAME******************
@@ -97,7 +106,7 @@ const validPass = function (inputPass){
 //firstname
 const validUserFirstname = function (inputFirst){
    let msg; let valid=false;
-    if (inputFirst.value.length <6){
+    if (inputFirst.value.length <2){
         msg="le prénom doit contenir au minimum 2 caractères";
     }else {
         valid=true;
@@ -105,10 +114,14 @@ const validUserFirstname = function (inputFirst){
     if (valid){
         inputFirst.classList.remove('invalid');
         inputFirst.classList.add('valid');
+        inputFirst.previousElementSibling.classList.remove('invalid');
+        inputFirst.previousElementSibling.classList.add('valid');
         return true;
     }else {
         inputFirst.classList.remove('valid');
         inputFirst.classList.add('invalid');
+        inputFirst.previousElementSibling.classList.remove('valid');
+        inputFirst.previousElementSibling.classList.add('invalid');
         return false;
     }
 
@@ -119,51 +132,22 @@ const validUserLastname = function (inputLast){
     let msg; let valid=false;
     if (inputLast.value.length <2){
         msg="le prénom doit contenir au minimum 2 caractères";
+        //console.log(msg);
     }else {
         valid=true;
     }
     if (valid){
         inputLast.classList.remove('invalid');
         inputLast.classList.add('valid');
+        inputLast.previousElementSibling.classList.remove('invalid');
+        inputLast.previousElementSibling.classList.add('valid');
         return true;
     }else {
         inputLast.classList.remove('valid');
         inputLast.classList.add('invalid');
+        inputLast.previousElementSibling.classList.remove('valid');
+        inputLast.previousElementSibling.classList.add('invalid');
         return false;
     }
 
 }
-
-
-
-
-
-/*
-
-if (password2 != form.userpass[0]){
-
-    console.log('les deux mot de passe doit etre identique');
-
-}
-
-const validPass2 = function (inputPass2) {
-    let msg;
-    let valid = false;
-    if (!validPass(inputPass2)){
-        msg='les deux mot de passe doit etre identique';
-
-    }else {
-        valid=true;
-    }
-
-    if (valid){
-        inputPass2.classList.remove('invalid');
-        inputPass2.classList.add('valid');
-        return true;
-    }else {
-        inputPass2.classList.remove('valid');
-        inputPass2.classList.add('invalid');
-        return false;
-    }
-
-}*/

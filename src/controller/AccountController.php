@@ -28,8 +28,10 @@ class AccountController
         $signin = \model\AccountModel::signin($firstsname, $lastsname, $mail, $password);
 
             if ($signin) {
-                header("Location: /account");
-                exit();
+                header("Location: /account?status=signin_success");
+
+            }else{
+                header("Location: /account?status=signin_fail");
             }
 
     }
@@ -53,13 +55,11 @@ class AccountController
                 'mail'=>$login['mail'],
             );
             $_SESSION['login']=$user;
-
             header("Location: /store");
             exit();
         }else{
 
-            header("Location: /account");
-            exit();
+            header("Location: /account?status=login_fail");
 
         }
 
@@ -68,8 +68,8 @@ class AccountController
    public function logout(){
         session_destroy();
 
-        header("Location: /account");
-        exit();
+        header("Location: /account?status=logout_success");
+
    }
 
 }
