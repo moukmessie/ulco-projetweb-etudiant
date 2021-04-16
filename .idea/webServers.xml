@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="095604cf-e676-42aa-88f4-7abfd90dfaad" name="xammp" url="http://localhost">
+        <fileTransfer mountedRoot="D:\L2 2020-2021\S4 2020-2021\ulco-l2-projetweb-etudiant" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
