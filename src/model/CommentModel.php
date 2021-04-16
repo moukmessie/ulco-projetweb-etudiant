@@ -7,13 +7,12 @@ namespace model;
 class CommentModel
 {
     static function insertComment(string $content,int $id_product,int $id_account){
-
+       // echo "content";
         //connexion to database
         $db = \model\Model::connect();
 
         //add sql request
-        $sql= "INSERT INTO comment SET content = :content, date = NOW(), id_product = :id_product, id_account = :id_account";
-        //Execution sql request
+        $sql= "INSERT INTO comment (content, date, id_product, id_account) VALUES (:content, NOW(), :id_product, :id_account)";        //Execution sql request
         $request= $db->prepare($sql);
         $request->execute(compact('content','id_product','id_account'));
     }

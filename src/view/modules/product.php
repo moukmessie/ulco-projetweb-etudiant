@@ -1,7 +1,4 @@
 
-
-
-
     <div id="product">
     <div>
         <div class="product-images">
@@ -51,10 +48,9 @@
             <?php if ($params['comment']!=null) :
                 foreach ($params['comment'] as $c) { ?>
                 <div class="product-comment">
-                   <p class="product-comment-author"><?= $c['comment']['firstname']." ".$c['comment']['lastname'] ?></p>
-                    <p>
-                        <?= $c['comment']['content']?>
-                    </p>
+                   <p class="product-comment-author"><?= $c["firstname"]." ".$c["lastname"] ?>
+                       <br> <small style="font-size: 12px "><?= $c['date']?></small></p>
+                    <p><?= $c['content']?></p>
                 </div>
 
             <?php } else: ?>

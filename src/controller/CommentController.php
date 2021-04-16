@@ -17,8 +17,9 @@ class CommentController
            $id_account = $_SESSION['login']['id'];
        }
 
-      var_dump($content);
+
       $comment = \model\CommentModel::insertComment($content,$id_product,$id_account);
+      // var_dump($content,$id_account,$id_product);
 
     if ($comment){
            header("Location: /store/$id_product");

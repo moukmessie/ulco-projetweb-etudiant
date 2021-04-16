@@ -30,6 +30,7 @@ class StoreController {
       $product = \model\StoreModel::infoProduct($id);
       $comment=\model\CommentModel::listComment($id);
 
+
       if( $product!=null){
           $params = array(
               "title" => "Info product",
@@ -39,9 +40,12 @@ class StoreController {
           );
           //  rendu du Template avec le module"
           \view\Template::render($params);
+      }else{
+          header("Location: /store");
+          exit();
       }
-      header("Location: /store");
-      exit();
+
+
   }
 
   public function search(){
@@ -54,18 +58,19 @@ class StoreController {
           $order = htmlspecialchars($_POST['order']);
       }
       if (isset($_POST['category']) && !empty($_POST['category'])) {
-          $category = htmlspecialchars($_POST['category']);
+          $category = ($_POST['category']);
       }
+        //var_dump($order,$category);
 
-     //var_dump($word);
       $categories = \model\StoreModel::listCategories();
-     $result = \model\StoreModel::search($word);
+     $result = \model\StoreModel::search($word,$category,$order);
 
-     $params = array(
+    $params = array(
           "title" => "Info product",
           "module" => "store.php",
           "categories" => $categories,
-          "result"=>$result
+          "products"=>$result,
+
       );
 
       //  rendu du Template avec le module"

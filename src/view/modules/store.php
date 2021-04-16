@@ -18,8 +18,8 @@
   } ?>
 
   <h4>Prix</h4>
-  <input type="radio" name="order" /> Croissant <br />
-  <input type="radio" name="order" /> Décroissant <br />
+  <input type="radio" name="order" value="asc"/> Croissant <br />
+  <input type="radio" name="order" value="desc" /> Décroissant <br />
 
   <div><input type="submit" value="Appliquer" /></div>
 
