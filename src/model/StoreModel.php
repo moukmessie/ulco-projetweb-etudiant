@@ -51,5 +51,32 @@ class StoreModel {
       return $request->fetch();
 
   }
+/*
+  static function search($word)
+  {
+
+
+      // Connexion à la base de données
+      $db = \model\Model::connect();
+
+      //Requete Sql
+     $sql = "SELECT p.name, c.name AS `category_name`, p.price FROM `product` AS p INNER JOIN `category` as c ON (p.category = c.id) WHERE p.name LIKE '%$word%'";
+      // $sql = "SELECT p.id, p.name, p.price, p.image, c.name AS `category_name` FROM `product` AS p INNER JOIN `category` as c ON (p.category = c.id)";
+
+      if($word!=null){
+            $sql.= "c.name LIKE $word ";
+      }
+      if($order!=null){
+          $sql.=" ORDER BY p.price DESC";
+      }
+
+
+      //Exécution de la requete
+      $request = $db->prepare($sql);
+      $request->execute();
+
+      //Retourne les resultat dans un array
+      return $request->fetch();
+}*/
 
 }

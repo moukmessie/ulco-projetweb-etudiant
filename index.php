@@ -26,8 +26,10 @@ $router->post('/account/signin','controller\AccountController@signin');
 $router->get('/account/logout','controller\AccountController@logout');
 
 //comment
-$router->post('/postComment/{:num}','controller\CommentController@postcomment');
+$router->post('/store/postComment/{:num}','controller\CommentController@postComment');
 
+//filter and search
+$router->post('/store/search','controller\StoreController@search');
 
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');

@@ -2,7 +2,7 @@
 
 <!-- Filtrer l'affichage des produits  ---------------------------------------->
 
-<form>
+<form method="post"  action="/store/search">
 
   <h4>Rechercher</h4>
   <input type="text" name="search" placeholder="Rechercher un produit" />
@@ -33,7 +33,6 @@
 
     <?php  foreach ($params["products"] as $p){ ?>
     <div class="card">
-
 
         <p class="card-image">
                 <img src="/public/images/<?= $p["image"] ?>" alt="">

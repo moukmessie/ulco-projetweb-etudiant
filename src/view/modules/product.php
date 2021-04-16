@@ -48,10 +48,22 @@
         </div>
         <div class="product-comments">
             <h2>Avis</h2>
-            <p>Il n'y pas d'avis pour ce produit.</p>
+            <?php if ($params['comment']!=null) :
+                foreach ($params['comment'] as $c) { ?>
+                <div class="product-comment">
+                   <p class="product-comment-author"><?= $c['comment']['firstname']." ".$c['comment']['lastname'] ?></p>
+                    <p>
+                        <?= $c['comment']['content']?>
+                    </p>
+                </div>
+
+            <?php } else: ?>
+              <p>Il n'y pas d'avis pour ce produit.</p>
+            <?php endif; ?>
+
             <?php if (!empty($_SESSION['login'])) :?>
-            <hr>
-            <form method="post" action="postComment/<?= $params['product']['id']?>" >
+
+            <form method="post" action="/store/postComment/<?= $params['product']['id']?>" >
                 <input type="text" name="comment">
                 <br>
                 <input type="submit" value="commenter" style="margin: 5px ">
