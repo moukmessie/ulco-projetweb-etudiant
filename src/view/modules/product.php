@@ -27,9 +27,9 @@
             <h1><?= $params["product"]["name"]?></h1>
             <p class="product-pice"><?= $params["product"]["price"]?> €</p>
 
-            <form >
+            <form method="post" action="/cart/add/<?=$params["product"]["id"] ?>">
                 <button id="less" type="button">-</button>
-                <button id="qte" type="button">1</button>
+                <button name="quantity" id="qte" type="button" >1</button>
                 <button id="more" type="button">+</button>
                 <input type="submit" value="Ajouter au panier">
             </form>

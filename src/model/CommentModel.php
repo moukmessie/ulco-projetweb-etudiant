@@ -7,7 +7,6 @@ namespace model;
 class CommentModel
 {
     static function insertComment(string $content,int $id_product,int $id_account){
-       // echo "content";
         //connexion to database
         $db = \model\Model::connect();
 

@@ -17,7 +17,7 @@
            $_SESSION['login']['firstname'] ." ".$_SESSION['login']['lastname']?>
        </a>
 
-       <a href="/panier">PANIER</a>
+       <a href="/cart">PANIER</a>
        <a href="/account/logout">DÉCONNEXION</a>
 
    <?php else: ?>

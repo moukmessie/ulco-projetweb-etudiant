@@ -34,6 +34,11 @@ $router->post('/store/postComment/{:num}','controller\CommentController@postComm
 //filter and search
 $router->post('/store/search','controller\StoreController@search');
 
+//cart
+$router->get('/cart','controller\CartController@cart');
+$router->post('/cart/add/{:num}','controller\CartController@add');
+
+
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');
 
