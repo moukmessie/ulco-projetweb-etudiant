@@ -54,4 +54,15 @@ class AccountModel
         return $request->fetch();
 
     }
+
+    static function update($firstname, $lastname, $mail,$id){
+        //connexion to database
+        $db = \model\Model::connect();
+
+        //update sql request
+        $sql= "UPDATE account SET account.firstname='$firstname',account.lastname='$lastname', account.mail='$mail' WHERE id =$id ";
+        $request = $db->prepare($sql);
+        $request->execute();
+
+    }
 }

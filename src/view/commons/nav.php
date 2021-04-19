@@ -10,7 +10,7 @@
     <a href="/store">Boutique</a>
 
    <?php if($logger) :?>
-       <a class="account" href="/profil">
+       <a class="account" href="/account/infos">
            <img src="/public/images/avatar.png" alt="avatar">
 
            <?=

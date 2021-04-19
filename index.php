@@ -22,8 +22,11 @@ $router->get('/store/{:num}','controller\StoreController@product');
 $router->get('/account','controller\AccountController@account');
 $router->post('/account/login','controller\AccountController@login');
 $router->post('/account/signin','controller\AccountController@signin');
-
 $router->get('/account/logout','controller\AccountController@logout');
+
+//profil
+$router->get('/account/infos','controller\AccountController@infos');
+$router->post('/account/update','controller\AccountController@update');
 
 //comment
 $router->post('/store/postComment/{:num}','controller\CommentController@postComment');
