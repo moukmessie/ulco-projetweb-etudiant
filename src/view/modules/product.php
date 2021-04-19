@@ -29,7 +29,10 @@
 
             <form method="post" action="/cart/add/<?=$params["product"]["id"] ?>">
                 <button id="less" type="button">-</button>
-                <button name="quantity" id="qte" type="button" >1</button>
+                <button  id="qte" type="button">1</button>
+
+                <input type="hidden" id="quantity" name="quantity" value="">
+
                 <button id="more" type="button">+</button>
                 <input type="submit" value="Ajouter au panier">
             </form>

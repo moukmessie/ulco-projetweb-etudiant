@@ -383,7 +383,7 @@ nav a img {
   padding: 8px 12px;
 }
 
-#product .product-infos button {
+#product .product-infos .nb button {
   background-color: #fff;
   border: 2px solid var(--color-main);
   color: var(--color-main);
