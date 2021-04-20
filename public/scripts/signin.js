@@ -27,12 +27,12 @@ form.userpass[0].addEventListener('change',function (){
 pwd.addEventListener('change',function (){
     validPass2(this);
 })
-console.log(pwd);
+
 
 //Soumission du formulaire
 form.addEventListener('submit', function (e){
     e.preventDefault();
-    if (validMail(form.usermail),validPass(form.userpass[0]),validUserName(form.userfirstname),validUserName(form.userlastname)){
+    if (validMail(form.usermail) && validUserName(form.userfirstname) &&  validPass(form.userpass[0]) &&  validUserName(form.userlastname) ){
         form.submit();
     }
 });
@@ -95,17 +95,20 @@ const validPass = function (inputPass){
         inputPass.previousElementSibling.classList.add('invalid');
         return false;}
     }
-
+pass1=form.userpass[0];
+console.log(pass1);
     //Password 2
     const validPass2 = function (inputPass){
-        pass1=form.userpass[0];
-        if (inputPass!=pass1){
+
+        if (inputPass.value!==pass1.value){
+
             inputPass.classList.remove('valid');
             inputPass.classList.add('invalid');
             inputPass.previousElementSibling.classList.remove('valid');
             inputPass.previousElementSibling.classList.add('invalid');
             return false;
-        }else {
+        }
+        else {
             inputPass.classList.remove('invalid');
             inputPass.classList.add('valid');
             inputPass.previousElementSibling.classList.remove('invalid');
@@ -115,16 +118,16 @@ const validPass = function (inputPass){
 
     }
 
-
 //*********************VALIDATION DU USERNAME******************
 
 const validUserName = function (inputFirst){
-   let msg; let valid=false;
+   let msg=""; let valid=false;
     if (inputFirst.value.length <2){
         msg="Doit contenir au minimum 2 caractères";
     }else {
         valid=true;
     }
+    inputFirst.nextElementSibling.innerHTML=msg;
     if (valid){
         inputFirst.classList.remove('invalid');
         inputFirst.classList.add('valid');

@@ -39,20 +39,20 @@
   <h3>Crée ton compte rapidement en remplissant le formulaire ci-dessous.</h3>
 
   <p>Nom</p>
-  <input type="text" name="userlastname" placeholder="Nom" />
-
+  <input type="text" name="userlastname" placeholder="Nom" required />
+    <small style="font-size: 12px; color: red"></small>
   <p>Prénom</p>
-  <input type="text" name="userfirstname" placeholder="Prénom" />
-
+  <input type="text" name="userfirstname" placeholder="Prénom" required />
+    <small style="font-size: 12px; color: red"></small>
   <p>Adresse mail</p>
-  <input type="text" name="usermail" placeholder="Adresse mail"  />
+  <input type="text" name="usermail" placeholder="Adresse mail" required />
 
   <p>Mot de passe</p>
-  <input type="password" name="userpass" placeholder="Mot de passe" />
+  <input type="password" name="userpass" placeholder="Mot de passe" required/>
     <small style="font-size: 12px; color: red"></small>
   <p>Répéter le mot de passe</p>
-  <input type="password" name="userpass" placeholder="Mot de passe" id="pwd"/>
-
+  <input type="password" name="userpass" placeholder="Mot de passe" id="pwd" required/>
+    <small style="font-size: 12px; color: red"></small>
   <input type="submit" value="Inscription" />
 
 </form>
