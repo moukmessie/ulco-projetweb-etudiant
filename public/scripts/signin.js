@@ -27,7 +27,7 @@ form.userpass[0].addEventListener('change',function (){
 pwd.addEventListener('change',function (){
     validPass2(this);
 })
-
+console.log(pwd);
 
 //Soumission du formulaire
 form.addEventListener('submit', function (e){
