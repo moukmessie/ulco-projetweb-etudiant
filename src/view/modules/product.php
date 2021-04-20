@@ -1,3 +1,9 @@
+<?php
+if (!empty($_GET['status'])){
+    $status =$_GET['status'];
+    if ($status == "add_success") :?>
+        <div class="box info" style="position: relative; left: 68%; "> Produit ajouté dans le panier.</div>
+    <?php endif; }?>
 
     <div id="product">
     <div>
@@ -30,12 +36,12 @@
             <form method="post" action="/cart/add/<?=$params["product"]["id"] ?>">
                 <button id="less" type="button">-</button>
                 <button  id="qte" type="button">1</button>
-
+                <button id="more" type="button">+</button>
+                <input type="submit" value="Ajouter au panier">
                 <input type="hidden" id="quantity" name="quantity" value="1">
                 <input type="hidden"  name="price" value="<?=$params["product"]["price"]?>">
                 <input type="hidden"  name="product_name" value="<?= $params["product"]["name"]?>">
-                <button id="more" type="button">+</button>
-                <input type="submit" value="Ajouter au panier">
+
             </form>
             <div class="box error" id="alert" >
                 Quantité maximale autorisée !

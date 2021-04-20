@@ -5,11 +5,14 @@
 }
 
 #cart  table {
+    table-layout: fixed;
     font-family: arial, sans-serif;
     border-spacing: 15px;
-    /* border-collapse: collapse;*/
+    width: 150px;
+
+    /* border-collapse: collapse;
      margin-bottom: 32px;
-     min-width: 55%;
+     min-width: 55%;*/
  }
 
 #cart  td,th {

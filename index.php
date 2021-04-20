@@ -37,6 +37,7 @@ $router->post('/store/search','controller\StoreController@search');
 //cart
 $router->get('/cart','controller\CartController@cart');
 $router->post('/cart/add/{:num}','controller\CartController@add');
+$router->post('/cart/delete','controller\CartController@delete');
 
 
 // Erreur 404

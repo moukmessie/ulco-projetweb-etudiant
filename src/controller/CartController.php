@@ -26,24 +26,37 @@ class CartController
     }
 
     public function add(int $id_product){
-
         if (!empty($_SESSION['login'])) {
-            $quantity=intval($_POST['quantity']);
-            $id_account=$_SESSION['login']['id'];
-            $product_name=$_POST['product_name'];
-            $price=intval($_POST['price']);
+            if (!empty($_SESSION['login'])) {
+                $quantity = intval($_POST['quantity']);
+                $id_account = $_SESSION['login']['id'];
+                $product_name = $_POST['product_name'];
+                $price = intval($_POST['price']);
 
-            $total_amount=($price*$quantity);
+                $total_amount = ($price * $quantity);
 
-           //var_dump($quantity,$id_product,$id_account,$product_name,$price,$total_amount);
+                //var_dump($quantity,$id_product,$id_account,$product_name,$price,$total_amount);
 
-           $product=\model\CartModel::add($quantity,$id_product,$id_account,$product_name,$price,$total_amount);
+                $product = \model\CartModel::add($quantity, $id_product, $id_account, $product_name, $price, $total_amount);
 
                 header("Location: /store/$id_product?status=add_success");
-          //var_dump($product);
+                //var_dump($product);
 
+            }
+        }else{
+            header("Location: /store");
         }
 
+    }
+
+    public function delete(){
+        if (!empty($_POST['id_cart'])) {
+            $id= htmlspecialchars($_POST['id_cart']);
+        }
+
+       if( \model\CartModel::deleteProduct($id)){
+           header("Location: /cart?status=delete");
+       }
     }
 
 

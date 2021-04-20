@@ -10,7 +10,7 @@ class CartModel
         //connexion to database
         $db = \model\Model::connect();
 
-        $sql = "SELECT * FROM cart WHERE `id_product`=$id_product";
+        $sql = "SELECT * FROM cart WHERE  `id_product`=$id_product and id_account=$id_account";
         $req = $db->prepare($sql);
         $req->execute();
         $response=$req->fetch();
@@ -30,7 +30,7 @@ class CartModel
         $db = \model\Model::connect();
 
         //select sql request
-       $sql= "SELECT cart.product_name,cart.quantity_prod, cart.price, cart.total_amount, product.image, category.name FROM  cart INNER JOIN product ON cart.id_product = product.id INNER JOIN category ON product.category = category.id WHERE cart.id_account= :id_account";
+       $sql= "SELECT cart.id,cart.product_name,cart.quantity_prod, cart.price, cart.total_amount, product.image, category.name FROM  cart INNER JOIN product ON cart.id_product = product.id INNER JOIN category ON product.category = category.id WHERE cart.id_account= :id_account";
         //Execution sql request
         $request= $db->prepare($sql);
         $request->execute(['id_account'=>$id_account]);
@@ -43,16 +43,14 @@ class CartModel
         $db = \model\Model::connect();
 
         //add sql request
-       // $sql= "SELECT account.firstname, account.lastname, comment.content, comment.date FROM  comment INNER JOIN account ON comment.id_account = account.id WHERE id_product= :id_product";
+       $sql= " DELETE FROM cart where id=:id";
         //Execution sql request
         $request= $db->prepare($sql);
-        $request->execute(['id_product'=>$id_product]);
-        return $request->fetchAll();
+        $request->execute(['id'=>$id]);
+
+        return true;
 
     }
 
-    static function udapteQuantity($id,$quantity){
-
-    }
 
 }
