@@ -51,7 +51,7 @@
   <input type="password" name="userpass" placeholder="Mot de passe" />
     <small style="font-size: 12px; color: red"></small>
   <p>Répéter le mot de passe</p>
-  <input type="password" name="userpass" placeholder="Mot de passe" />
+  <input type="password" name="userpass" placeholder="Mot de passe" id="pwd"/>
 
   <input type="submit" value="Inscription" />
 
