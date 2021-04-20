@@ -31,8 +31,9 @@
                 <button id="less" type="button">-</button>
                 <button  id="qte" type="button">1</button>
 
-                <input type="hidden" id="quantity" name="quantity" value="">
-
+                <input type="hidden" id="quantity" name="quantity" value="1">
+                <input type="hidden"  name="price" value="<?=$params["product"]["price"]?>">
+                <input type="hidden"  name="product_name" value="<?= $params["product"]["name"]?>">
                 <button id="more" type="button">+</button>
                 <input type="submit" value="Ajouter au panier">
             </form>

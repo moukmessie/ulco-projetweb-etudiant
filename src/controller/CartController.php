@@ -8,10 +8,14 @@ class CartController
 {
     public function cart(){
         if (!empty($_SESSION['login'])) {
+            $id=$_SESSION['login']['id'];
             // Variables à transmettre à la vue
+            $cart=\model\CartModel::listcart($id);
+
             $params = [
                 "title" => "Cart",
-                "module" => "cart.php"
+                "module" => "cart.php",
+                "cart"=>$cart
             ];
 
             // Faire le rendu de la vue "src/view/Template.php"
@@ -22,17 +26,25 @@ class CartController
     }
 
     public function add(int $id_product){
-       // $quantity=null;
-        if (!empty($_SESSION['login'])) {
-            $quantity=$_POST['quantity'];
-            $id_account=$_SESSION['login']['id'];
-           var_dump($quantity);
 
-           //$product=\model\CartModel::add($quantity,$id_product,$id_account);
+        if (!empty($_SESSION['login'])) {
+            $quantity=intval($_POST['quantity']);
+            $id_account=$_SESSION['login']['id'];
+            $product_name=$_POST['product_name'];
+            $price=intval($_POST['price']);
+
+            $total_amount=($price*$quantity);
+
+           //var_dump($quantity,$id_product,$id_account,$product_name,$price,$total_amount);
+
+           $product=\model\CartModel::add($quantity,$id_product,$id_account,$product_name,$price,$total_amount);
+
+                header("Location: /store/$id_product?status=add_success");
           //var_dump($product);
 
         }
 
     }
+
 
 }
