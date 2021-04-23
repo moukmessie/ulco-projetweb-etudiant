@@ -86,7 +86,9 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
+
   cursor: pointer;
+  background-color: var(--bg-accent);
   text-decoration: underline;
 }
 
@@ -139,6 +141,7 @@ nav a:after {
 }
 
 nav a:hover {
+
   text-decoration: none;
 }
 
@@ -237,8 +240,10 @@ nav a img {
 }
 
 #store input[type="submit"] {
+
   margin-top: 20px;
 }
+
 
 #store .products {
   display: grid;
@@ -347,6 +352,7 @@ nav a img {
 }
 
 #product .product-miniatures div:hover {
+
   cursor: pointer;
   border: 3px solid var(--color-main);
 }
@@ -383,6 +389,7 @@ nav a img {
   padding: 8px 12px;
 }
 
+
 #product .product-infos .nb button {
   background-color: #fff;
   border: 2px solid var(--color-main);
@@ -393,6 +400,7 @@ nav a img {
 }
 
 #product .product-infos button:hover {
+
   cursor: pointer;
 }
 

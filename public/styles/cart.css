@@ -1,46 +1,43 @@
-/* Cart styles */
 
 #cart {
-    margin: 64px 32px;
+    display: flex;
+    margin: 32px;
+    /*margin: 64px 32px;*/
 }
-
-#cart  table {
-    table-layout: fixed;
-    font-family: arial, sans-serif;
-    border-spacing: 15px;
-    width: 150px;
-
-    /* border-collapse: collapse;
-     margin-bottom: 32px;
-     min-width: 55%;*/
- }
-
-#cart  td,th {
-     border-bottom: 1px solid rgba(0, 0, 0, .2);
-     /*border: 1px solid #dddddd;*/
+#cart table {
+    border-spacing: 10px;
+    /*border: 2px solid rgb(200,200,200);*/
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    width: 65%;
     text-align: center;
-    padding: 8px;
-
 }
-#cart td{
-     padding: 32px 0;
-     vertical-align: top;
 
- }
-
-#cart td:nth-child(even) {
-   background-color: #dddddd;
-
+#cart td, th {
+    /* border: 1px solid rgb(190,190,190);*/
+    padding: 10px 20px;
+    width: 60%;
 }
-#cart td:first-child {
-    width: 150px;
+
+
+#cart  tr:nth-child(even) td {
+    background-color: rgb(250,250,250);
 }
-#cart .pro img{
-    float: left;
+
+#cart tr:nth-child(odd) td {
+    background-color: rgb(245,245,245);
+}
+
+#cart table .price {
+    font-size: 22px;
+    margin: 8px;
     width: 128px;
-
 }
-#cart .category {
+
+#cart table .quantity {
+    margin-bottom: 8px;
+}
+#cart table .category {
     background-color: var(--bg-accent);
     display: inline-block;
     font-size: 14px;
@@ -48,18 +45,54 @@
     margin-bottom: 12px;
     padding: 4px 8px;
 }
-#cart .product {
-    font-size: 18px;
-    font-weight: 600;
+#cart  .cross input{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    float: right;
+    margin-right: -10%;
+    margin-top: 10%;
+
 }
-#cart .price {
+#cart .cross input:hover {
+    background: #d61818;
+}
+
+#cart .panier{
+    flex: 3;
+    padding: 0 32px;
+    text-align: justify;
+}
+#cart .recap{
+    background-color: #eee;
+    flex: 1;
+    padding: 0 32px 32px;
+    align-self: flex-start;
+}
+#cart .recap form {
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    margin-top: 16px;
+}
+
+#cart .detail p:not(.product-comment-author) {
     font-size: 22px;
-    margin-top: 8px;
 }
-#cart .quantity {
+
+#cart .total {
+    font-size: 18px;
     margin-bottom: 8px;
 }
-#cart .total {
-    font-size: 22px;
-    margin-top: 8px;
+
+/* Button 2 */
+#cart .btn-2 {
+    font-size: 18px;
+    height: 50px;
+    width: 98px;
+    background-color: var(--bg-accent);
+    color: #161616;
 }
+
+#cart .btn-2:hover {
+    background: #27ae60;
+}
+
