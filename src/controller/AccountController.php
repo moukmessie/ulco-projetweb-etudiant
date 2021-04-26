@@ -71,7 +71,6 @@ class AccountController
 
    public function logout(){
         session_destroy();
-
         header("Location: /account?status=logout_success");
 
    }
@@ -96,19 +95,20 @@ class AccountController
        if (!empty($_SESSION['login'])) {
            $id = $_SESSION['login']['id'];
 
-        $firstname=htmlspecialchars($_POST['firstname']);
-        $lastname=htmlspecialchars($_POST['lastname']);
-        $mail=htmlspecialchars($_POST['mail']);
+           $firstname = !empty(($_POST['firstname']))? htmlspecialchars($_POST['firstname']) : $_SESSION['login']['firstname'];
+           $lastname  = !empty(($_POST['lastname']))? htmlspecialchars($_POST['lastname']) : $_SESSION['login']['lastname'];
+           $mail = !empty(($_POST['mail']))? htmlspecialchars($_POST['mail']) : $_SESSION['login']['mail'];
+
+          /* $lastname = htmlspecialchars($_POST['lastname']);
+               $mail = htmlspecialchars($_POST['mail']);*/
 
         $updated=\model\AccountModel::update($firstname,$lastname,$mail,$id);
-
             $_SESSION['login']['firstname']=$firstname;
             $_SESSION['login']['lastname']=$lastname;
             $_SESSION['login']['mail']=$mail;
             header("Location: /account/infos?status=ok");
         }
    }
-
 
 
 }

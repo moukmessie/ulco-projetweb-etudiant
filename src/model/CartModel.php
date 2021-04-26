@@ -15,7 +15,9 @@ class CartModel
         $req->execute();
         $response=$req->fetch();
         if ($response != null) {
-            $sql= "UPDATE cart SET quantity_prod=$quantity, total_amount=$total_amount WHERE id_account =$id_account";
+           $qtUp=$response['quantity_prod'];
+           $amountUp=$response['total_amount'];
+            $sql= "UPDATE cart SET quantity_prod=$quantity + $qtUp, total_amount=$total_amount+$amountUp WHERE `id_product`=$id_product and id_account =$id_account";
             $request= $db->prepare($sql);
             $request->execute(compact('quantity','id_product','id_account','product_name', 'price', 'total_amount'));
         }else {//add sql request
@@ -43,12 +45,29 @@ class CartModel
         $db = \model\Model::connect();
 
         //add sql request
-       $sql= " DELETE FROM cart where id=:id";
+       $sql= " DELETE FROM cart where id=:id ";
         //Execution sql request
         $request= $db->prepare($sql);
         $request->execute(['id'=>$id]);
+         return true;
 
-        return true;
+    }
+    static function updateQuantitie($quantity):bool
+    {
+        //connexion to database
+        $db = \model\Model::connect();
+
+        $sql = "SELECT * FROM cart WHERE  `id_product`=$id_product and id_account=$id_account";
+        $req = $db->prepare($sql);
+        $req->execute();
+        $response=$req->fetch();
+        if ($response != null) {
+            $qtUp=$response['quantity_prod'];
+            $amountUp=$response['total_amount'];
+            $sql= "UPDATE cart SET quantity_prod=$quantity + $qtUp, total_amount=$total_amount+$amountUp WHERE `id_product`=$id_product and id_account =$id_account";
+            $request= $db->prepare($sql);
+            $request->execute(['quantity'=>$quantity]);
+        }
 
     }
 

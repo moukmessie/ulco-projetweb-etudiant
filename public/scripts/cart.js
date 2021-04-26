@@ -23,7 +23,6 @@
              }
          })
 
-
         //less product
         btnless.addEventListener('click', function () {
             if (qte.textContent > 1) {

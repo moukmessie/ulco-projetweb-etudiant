@@ -3,6 +3,7 @@ let form = document.querySelector('#loginForm');
 let pwd=document.getElementById('pwd');
 
 
+
 //**********************ECOUTER LES MODIFICATIONS******************
 
 //userlastname
@@ -143,6 +144,7 @@ const validUserName = function (inputFirst){
     }
 
 }
+
 
 
 

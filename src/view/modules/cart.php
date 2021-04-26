@@ -14,49 +14,50 @@ if (!empty($_GET['status'])){
     $total=null;
     ?>
     <table>
-
         <?php foreach ($params['cart'] as $cart) : $total += ($cart['total_amount'])?>
-            <form action="/cart/delete" method="post">
+
                 <tr>
-                    <th rowspan="1"><div><img style=" float: left; width: 120px;" src="/public/images/<?= $cart['image']?>" alt=""></div>
-                        <div class="category"><?= $cart['name']?></div>
-                        <div class="product"><?= $cart['product_name']?></div>
+                    <th rowspan="1">
+                        <div><img style=" float: left; width: 120px;" src="/public/images/<?= $cart['image']?>" alt=""></div>
+                        <td>
+                            <div class="category"><?= $cart['name']?></div>
+                            <div class="product"><?= $cart['product_name']?></div>
+                        </td>
                     </th>
 
-                    <td>
+                        <td>
+                           <div>Quantité :</div>
+                            <br>
+                            <form  method="post" action="/cart/add/<?=$params["product"]["id"] ?>">
+                                <div class="quantity">
 
-                       <div>Quantité :</div>
-                        <br>
-                        <div class="quantity">
+                                    <button class="btnLess" type="submit">-</button>
+                                    <button  class="cartQte" type="button" value="1"><?= $cart['quantity_prod']?></button>
+                                    <button class="btnMore" type="submit">+</button>
+                                    <input type="hidden" class="quantitId" name="cartQuantity" value="<?= $cart['quantity_prod']?>">
+                                </div>
+                            </form>
+                        </td>
+                         <form action="/cart/delete" method="post">
+                                <td>
+                                    <div>Prix:</div>
 
-                            <button id="btnLess" type="button">-</button>
-                            <button  id="cartQte" type="button"><?= $cart['quantity_prod']?></button>
-                            <button id="btnMore" type="button">+</button>
-                            <input type="hidden" id="quantity" name="quantity" value="1">
+                                    <div class="price">
+                                        <?= $cart['price']?> €
+                                    </div>
 
-                        </div>
-                    </td>
+                                     <div class="cross">
+                                        <input type="submit"  name="remove" value="&#10005;" style="font-size: 10px; border-color: #999999">
+                                     </div>
+                                </td>
 
-                    <td>
-                        <div>Prix:</div>
-
-                        <div class="price">
-                            <?= $cart['price']?> €
-                        </div>
-
-                            <div class="cross">
-                                <input type="submit"  name="remove" value="&#10005;" style="font-size: 10px; border-color: #999999">
-                            </div>
-                    </td>
-
-
-                    <td style="background-color: #ffffff; border:none ;text-align: right">
-                        <input type="hidden"  name="id_cart" value="<?=$cart["id"]?>">
-                    </td>
-
+                                <td style="background-color: #ffffff; border:none ;text-align: right">
+                                    <input type="hidden"  name="id_cart" value="<?=$cart["id"]?>">
+                                </td>
+                         </form>
                 </tr>
 
-            </form>
+
         <?php endforeach;?>
 
     </table>
@@ -80,7 +81,7 @@ if (!empty($_GET['status'])){
 
                 <form>
                     <br>
-                    <button class="btn btn-2 btn-sep icon-cart">Valider</button>
+                    <button class="btn-2">Valider</button>
                 </form>
             </div>
     </div>
@@ -102,14 +103,14 @@ if (!empty($_GET['status'])){
         /*border: 2px solid rgb(200,200,200);*/
         letter-spacing: 1px;
         font-size: 0.8rem;
-        width: 65%;
+        width: 75%;
         text-align: center;
     }
 
     #cart td, th {
         /* border: 1px solid rgb(190,190,190);*/
         padding: 10px 20px;
-        width: 60%;
+        width: 75%;
     }
 
 
@@ -128,7 +129,9 @@ if (!empty($_GET['status'])){
     }
 
     #cart table .quantity {
-        margin-bottom: 8px;
+        margin: 8px;
+        width: 128px;
+
     }
     #cart table .category {
         background-color: var(--bg-accent);
@@ -191,3 +194,36 @@ if (!empty($_GET['status'])){
 
 
 </style>
+<script>
+    let btnless = document.getElementsByClassName('btnLess');
+    let qte = document.getElementsByClassName('cartQte');
+let quatityId = document.getElementsByClassName('quantitId');
+    let btnMore = document.getElementsByClassName('btnMore');
+    let qteMax = 5;
+
+
+    // more product
+    for (let i = 0; i< btnMore.length;i++) {
+       // quatityId[i].value = qteMax;
+         ;
+        btnMore[i].addEventListener('click', function () {
+            // console.log("clique");
+
+            if (quatityId[i].value  < qteMax) {
+                quatityId[i].value = parseInt(quatityId[i].value) + 1;
+                console.log(qte[i].textContent = quatityId[i].value)
+            }
+        })
+    }
+
+    //less product
+    for (let i = 0; i< btnless.length;i++) {
+        btnless[i].addEventListener('click', function () {
+            if (quatityId[i].value  > 1) {
+                quatityId[i].value = parseInt(quatityId[i].value) - 1;
+                console.log(qte[i].textContent = quatityId[i].value)
+            }
+        })
+    }
+
+</script>
