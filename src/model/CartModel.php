@@ -52,22 +52,16 @@ class CartModel
          return true;
 
     }
-    static function updateQuantitie($quantity):bool
+    static function updateQuantity($id_product,$quantity,$id_account,$total_amount)
     {
         //connexion to database
         $db = \model\Model::connect();
 
-        $sql = "SELECT * FROM cart WHERE  `id_product`=$id_product and id_account=$id_account";
-        $req = $db->prepare($sql);
-        $req->execute();
-        $response=$req->fetch();
-        if ($response != null) {
-            $qtUp=$response['quantity_prod'];
-            $amountUp=$response['total_amount'];
-            $sql= "UPDATE cart SET quantity_prod=$quantity + $qtUp, total_amount=$total_amount+$amountUp WHERE `id_product`=$id_product and id_account =$id_account";
+
+           //$sql= "UPDATE cart SET quantity_prod=$quantity ,total_amount=$total_amount  WHERE `id`=$id_product and id_account =$id_account";
+        $sql= "UPDATE cart SET quantity_prod=$quantity,total_amount=$total_amount  WHERE `id`=$id_product and id_account =$id_account";
             $request= $db->prepare($sql);
-            $request->execute(['quantity'=>$quantity]);
-        }
+             $request->execute();
 
     }
 

@@ -28,13 +28,15 @@ if (!empty($_GET['status'])){
                         <td>
                            <div>Quantité :</div>
                             <br>
-                            <form  method="post" action="/cart/add/<?=$params["product"]["id"] ?>">
+                            <form  method="post" action="/cart/updateQuantity">
                                 <div class="quantity">
-
+                                    <input type="hidden"  name="cartId" value="<?= $cart['id']?>">
+                                    <input type="hidden"  name="cartPrice" value="<?= $cart['price']?>">
                                     <button class="btnLess" type="submit">-</button>
                                     <button  class="cartQte" type="button" value="1"><?= $cart['quantity_prod']?></button>
                                     <button class="btnMore" type="submit">+</button>
                                     <input type="hidden" class="quantitId" name="cartQuantity" value="<?= $cart['quantity_prod']?>">
+
                                 </div>
                             </form>
                         </td>
@@ -48,16 +50,11 @@ if (!empty($_GET['status'])){
 
                                      <div class="cross">
                                         <input type="submit"  name="remove" value="&#10005;" style="font-size: 10px; border-color: #999999">
+                                         <input type="hidden"  name="id_cart" value="<?=$cart["id"]?>">
                                      </div>
-                                </td>
-
-                                <td style="background-color: #ffffff; border:none ;text-align: right">
-                                    <input type="hidden"  name="id_cart" value="<?=$cart["id"]?>">
                                 </td>
                          </form>
                 </tr>
-
-
         <?php endforeach;?>
 
     </table>

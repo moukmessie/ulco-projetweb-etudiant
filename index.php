@@ -38,7 +38,7 @@ $router->post('/store/search','controller\StoreController@search');
 $router->get('/cart','controller\CartController@cart');
 $router->post('/cart/add/{:num}','controller\CartController@add');
 $router->post('/cart/delete','controller\CartController@delete');
-
+$router->post('/cart/updateQuantity','controller\CartController@updateQuantity');
 
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');
