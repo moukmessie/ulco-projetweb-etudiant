@@ -6,7 +6,9 @@
             if ($status=="ok"){
                 ?>
                 <div class="box info" style="margin: 35px 30px 0">Tes informations personnelles ont été mises à jour !</div>
-            <?php }
+            <?php } elseif ($status=="failed"){?>
+                <div class="box error" style="margin: 35px 30px 0">L'adresse e-mail est déjà utilisée !</div>
+           <?php }
         } ?>
 
     <div id="infos">
@@ -45,28 +47,4 @@
         <p>Tu n'as pas de commande en cours.</p>
     </div>
 
-<script>
-    let input1 = document.getElementById("input1");
-    let input2 = document.getElementById("input2");
-    let input3 = document.getElementById("input3");
-
-
-    function show2() {
-        document.getElementById("input2").disabled = false;
-        document.getElementById("btn-update").style.visibility='visible';
-        document.getElementById("link2").style.visibility='hidden';
-
-    }
-    function show1() {
-        document.getElementById("input1").disabled = false;
-        document.getElementById("btn-update").style.visibility='visible';
-        document.getElementById("link1").style.visibility='hidden';
-
-    }
-    function show3() {
-        document.getElementById("input3").disabled = false;
-        document.getElementById("btn-update").style.visibility='visible';
-        document.getElementById("link3").style.visibility='hidden';
-
-    }
-</script>
+<script src="/public/scripts/profil.js"></script>

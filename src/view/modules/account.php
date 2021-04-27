@@ -6,7 +6,7 @@
       if ($status == "login_fail") :?>
          <div class="box error" style="margin-left: 30px"> La connexion a échoué. Vérifiez vos identifiants et réessayez.</div>
 <?php elseif ($status == "signin_fail") :?>
-            <div class="box error" style="margin-left: 30px">Inscription échoué, Vous avez déjà un compte avec l'adresse mail saisi.</div>
+            <div class="box error" style="margin-left: 30px">Inscription échoué, l'adresse e-mail est déjà utilisée.</div>
       <?php elseif ($status == "logout_success") :?>
             <div class="box info" style="margin-left: 30px">Vous êtes déconnecté. À bientôt !</div>
      <?php elseif ($status == "signin_success") :?>

@@ -1,35 +1,33 @@
+document.addEventListener('DOMContentLoaded', function () {
+    let btnless = document.getElementsByClassName('btnLess');
+    let qte = document.getElementsByClassName('cartQte');
+    let quatityId = document.getElementsByClassName('quantitId');
+    let btnMore = document.getElementsByClassName('btnMore');
+    let qteMax = 5;
 
-    let qt=document.querySelectorAll(".qt");
 
-    //for (let i = 0; i < qt.length; i++){
-    let btnless = document.querySelector("#btnLess");
-        let qte = document.querySelector("#cartQte");
-        let warn = document.querySelector("#alert");
-        let btnMore = document.querySelector("#btnMore");
-        let qteMax = 5;
-        //console.log(btnMore);
-        warn.style.visibility = 'hidden'
-        // more product
-         btnMore.addEventListener('click', function () {
-             // console.log("clique");
-             if (qte.textContent < qteMax) {
+    // more product
+    for (let i = 0; i< btnMore.length;i++) {
+        // quatityId[i].value = qteMax;
+        ;
+        btnMore[i].addEventListener('click', function () {
+            // console.log("clique");
 
-                 qte.textContent = parseInt(qte.textContent) + 1;
-
-                 // console.log(parseInt(qte.textContent));
-                 if (qte.textContent == qteMax) {
-                     warn.style.visibility = 'visible'
-                 }
-             }
-         })
-
-        //less product
-        btnless.addEventListener('click', function () {
-            if (qte.textContent > 1) {
-                qte.textContent = parseInt(qte.textContent) - 1;
-
-                warn.style.visibility = 'hidden'
+            if (quatityId[i].value  < qteMax) {
+                quatityId[i].value = parseInt(quatityId[i].value) + 1;
+                console.log(qte[i].textContent = quatityId[i].value)
             }
         })
-  //  }
+    }
 
+    //less product
+    for (let i = 0; i< btnless.length;i++) {
+        btnless[i].addEventListener('click', function () {
+            if (quatityId[i].value  > 1) {
+                quatityId[i].value = parseInt(quatityId[i].value) - 1;
+                console.log(qte[i].textContent = quatityId[i].value)
+            }
+        })
+    }
+
+}

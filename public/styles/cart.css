@@ -9,14 +9,14 @@
     /*border: 2px solid rgb(200,200,200);*/
     letter-spacing: 1px;
     font-size: 0.8rem;
-    width: 65%;
+    width: 75%;
     text-align: center;
 }
 
 #cart td, th {
     /* border: 1px solid rgb(190,190,190);*/
     padding: 10px 20px;
-    width: 60%;
+    width: 75%;
 }
 
 
@@ -35,7 +35,9 @@
 }
 
 #cart table .quantity {
-    margin-bottom: 8px;
+    margin: 8px;
+    width: 128px;
+
 }
 #cart table .category {
     background-color: var(--bg-accent);
@@ -83,7 +85,7 @@
     margin-bottom: 8px;
 }
 
-/* Button 2 */
+/* Button valider*/
 #cart .btn-2 {
     font-size: 18px;
     height: 50px;

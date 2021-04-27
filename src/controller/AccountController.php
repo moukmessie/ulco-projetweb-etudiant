@@ -103,10 +103,14 @@ class AccountController
                $mail = htmlspecialchars($_POST['mail']);*/
 
         $updated=\model\AccountModel::update($firstname,$lastname,$mail,$id);
-            $_SESSION['login']['firstname']=$firstname;
-            $_SESSION['login']['lastname']=$lastname;
-            $_SESSION['login']['mail']=$mail;
+        if ($updated) {
+            $_SESSION['login']['firstname'] = $firstname;
+            $_SESSION['login']['lastname'] = $lastname;
+            $_SESSION['login']['mail'] = $mail;
             header("Location: /account/infos?status=ok");
+        }else{
+            header("Location: /account/infos?status=failed");
+        }
         }
    }
 

@@ -61,13 +61,14 @@ class CartController
 
     public function updateQuantity(){
 
-
-        $id_product= intval($_POST['cartId']);
+    if (isset($_POST['cartId']) and isset($_POST['cartQuantity'])and isset($_SESSION['login']['id']) and isset($_POST['cartPrice'])) {
+        $id_product = intval($_POST['cartId']);
         $quantity = intval($_POST['cartQuantity']);
         $id_account = intval($_SESSION['login']['id']);
         $price = intval($_POST['cartPrice']);
         //TOTAL AMOUNT
         $total_amount = ($price * $quantity);
+    }
 
         // var_dump($id_product,$quantity,$id_account,$total_amount);
 
