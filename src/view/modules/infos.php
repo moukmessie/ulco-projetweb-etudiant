@@ -21,30 +21,30 @@
                 <tr>
                     <td>Prénom</td>
                     <td><input type="text" name="firstname" value="<?=  $_SESSION['login']['firstname'] ?>"  disabled id="input1"></td>
-                    <td><a onclick="show1()" style="color: blue;cursor: pointer" id="link1">Modifier</a></td>
+                    <td><a  style="color: blue;cursor: pointer" id="link1">Modifier</a></td>
                 </tr>
                 <tr>
                     <td>Nom</td>
-                    <td><input type="text" name="lastname" value="<?= $_SESSION['login']['lastname']?>" disabled id="input2"></td>
-                    <td><a  style="color: blue; cursor: pointer"  onclick="show2()" id="link2">Modifier</a></td>
+                    <td id="blacko"><input type="text" name="lastname" value="<?= $_SESSION['login']['lastname']?>" disabled id="input2"></td>
+                    <td><a  style="color: blue; cursor: pointer"  id="link2">Modifier</a></td>
                 </tr>
                 <tr>
                     <td>Adresse mail</td>
                     <td><input type="text" name="mail"  value="<?= $_SESSION['login']['mail']?>" disabled id="input3"></td>
-                    <td><a onclick="show3()" style="color: blue;cursor: pointer" id="link3" >Modifier</a></td>
+                    <td><a  style="color: blue;cursor: pointer" id="link3" >Modifier</a></td>
                 </tr>
                 <tr></tr>
 
     <?php endif; ?>
         </table>
 
-            <div id="btn-update" style="margin: 68px 835px; visibility: hidden"><input type="submit" value="Enregistrer les modifications"></div>
+            <div id="btn-update" style="margin: 68px 835px; "><input type="submit" value="Enregistrer les modifications"></div>
 
         </form>
 
          <h3>Commandes</h3>
 
-        <p>Tu n'as pas de commande en cours.</p>
+        <p>Pas de commande en cours.</p>
     </div>
 
 <script src="/public/scripts/profil.js"></script>

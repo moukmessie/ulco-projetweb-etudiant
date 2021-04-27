@@ -55,22 +55,31 @@ class AccountModel
 
     }
 
-    static function update($firstname, $lastname, $mail,$id):bool
+    static function update($firstname, $lastname, $mail,$id)
     {
+        //connexion to database
+        $db = \model\Model::connect();
+
+            //update sql request
+            $sql= "UPDATE account SET account.firstname='$firstname',account.lastname='$lastname', account.mail='$mail' WHERE id =$id ";
+            $request = $db->prepare($sql);
+            $request->execute();
+
+
+
+    }
+    static function checkMail($mail){
         //connexion to database
         $db = \model\Model::connect();
         $sql = "SELECT * FROM account WHERE  `mail`='$mail'";
         $req = $db->prepare($sql);
         $req->execute();
         $response=$req->fetch();
-        if ($response == null ) {
-            //update sql request
-            $sql= "UPDATE account SET account.firstname='$firstname',account.lastname='$lastname', account.mail='$mail' WHERE id =$id ";
-            $request = $db->prepare($sql);
-            $request->execute();
+
+        if ($response != null ){
+            return false;
+        }else{
             return true;
         }
-        return false;
-
     }
 }

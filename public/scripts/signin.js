@@ -61,7 +61,7 @@ const validMail = function (inputMail){
 }
 
 //*********************VALIDATION DU USER PASS******************
-const validPass = function (inputPass){
+ const validPass = function (inputPass){
     let msg="";
     let valid=false;
     //Au moins 6 caractères
@@ -96,7 +96,7 @@ const validPass = function (inputPass){
         inputPass.previousElementSibling.classList.add('invalid');
         return false;}
     }
-pass1=form.userpass[0];
+ let pass1=form.userpass[0];
 console.log(pass1);
     //Password 2
     const validPass2 = function (inputPass){
@@ -121,7 +121,7 @@ console.log(pass1);
 
 //*********************VALIDATION DU USERNAME******************
 
-const validUserName = function (inputFirst){
+ const validUserName = function (inputFirst){
    let msg=""; let valid=false;
     if (inputFirst.value.length <2){
         msg="Doit contenir au minimum 2 caractères";

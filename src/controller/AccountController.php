@@ -93,25 +93,33 @@ class AccountController
 
    public function update(){
        if (!empty($_SESSION['login'])) {
-           $id = $_SESSION['login']['id'];
+               $id = $_SESSION['login']['id'];
 
-           $firstname = !empty(($_POST['firstname']))? htmlspecialchars($_POST['firstname']) : $_SESSION['login']['firstname'];
-           $lastname  = !empty(($_POST['lastname']))? htmlspecialchars($_POST['lastname']) : $_SESSION['login']['lastname'];
-           $mail = !empty(($_POST['mail']))? htmlspecialchars($_POST['mail']) : $_SESSION['login']['mail'];
+               $firstname = !empty(($_POST['firstname']))? htmlspecialchars($_POST['firstname']) : $_SESSION['login']['firstname'];
+               $lastname  = !empty(($_POST['lastname']))? htmlspecialchars($_POST['lastname']) : $_SESSION['login']['lastname'];
+               $mail = !empty(($_POST['mail']))? htmlspecialchars($_POST['mail']) : $_SESSION['login']['mail'];
 
-          /* $lastname = htmlspecialchars($_POST['lastname']);
-               $mail = htmlspecialchars($_POST['mail']);*/
+             if ($mail !== $_SESSION['login']['mail'] ){
+                    if ( !\model\AccountModel::checkMail($mail)) {
+                        header("Location: /account/infos?status=failed");
+                    }else{
+                        $response = \model\AccountModel::update($firstname, $lastname, $mail, $id);
 
-        $updated=\model\AccountModel::update($firstname,$lastname,$mail,$id);
-        if ($updated) {
-            $_SESSION['login']['firstname'] = $firstname;
-            $_SESSION['login']['lastname'] = $lastname;
-            $_SESSION['login']['mail'] = $mail;
-            header("Location: /account/infos?status=ok");
-        }else{
-            header("Location: /account/infos?status=failed");
-        }
-        }
+                        $_SESSION['login']['firstname'] = $firstname;
+                        $_SESSION['login']['lastname'] = $lastname;
+                        $_SESSION['login']['mail'] = $mail;
+                        header("Location: /account/infos?status=ok");
+                    }
+              }
+             else {
+                    $response = \model\AccountModel::update($firstname, $lastname, $mail, $id);
+
+                    $_SESSION['login']['firstname'] = $firstname;
+                    $_SESSION['login']['lastname'] = $lastname;
+                    $_SESSION['login']['mail'] = $mail;
+                    header("Location: /account/infos?status=ok");
+             }
+       }
    }
 
 
