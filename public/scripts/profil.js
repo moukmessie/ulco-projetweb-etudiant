@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
 
     function show2() {
         document.getElementById("input2").disabled = false;
@@ -19,4 +19,4 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("link3").style.visibility='hidden';
 
     }
-}
+})
