@@ -40,6 +40,8 @@ $router->post('/cart/add/{:num}','controller\CartController@add');
 $router->post('/cart/delete','controller\CartController@delete');
 $router->post('/cart/updateQuantity','controller\CartController@updateQuantity');
 
+$router->get('/cart/payment','controller\CartController@payment');
+
 // Erreur 404
 $router->whenNotFound('controller\ErrorController@error');
 

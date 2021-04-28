@@ -78,5 +78,21 @@ class CartController
 
     }
 
+    public function payment(){
+      //  if (!empty($_SESSION['login'])) {
+
+            $params = [
+                "title" => "payment",
+                "module" => "payment.php",
+
+            ];
+
+            // Faire le rendu de la vue "src/view/Template.php"
+            \view\Template::render($params);
+       /* }else{
+            header("Location: /store");
+        }*/
+    }
+
 
 }

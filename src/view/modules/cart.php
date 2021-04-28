@@ -19,9 +19,9 @@ if (!empty($_GET['status'])){
                 <tr>
                     <th rowspan="1">
                         <div><img style=" float: left; width: 120px;" src="/public/images/<?= $cart['image']?>" alt=""></div>
-                        <td>
-                            <div class="category"><?= $cart['name']?></div>
-                            <div class="product"><?= $cart['product_name']?></div>
+                        <td >
+                            <div class="category" style="width: 128px;"><?= $cart['name']?></div>
+                            <div class="product" "><?= $cart['product_name']?></div>
                         </td>
                     </th>
 
@@ -29,7 +29,7 @@ if (!empty($_GET['status'])){
                            <div>Quantité :</div>
                             <br>
                             <form  method="post" action="/cart/updateQuantity">
-                                <div class="quantity">
+                                <div class="quantity" style="width: 128px;">
                                     <input type="hidden"  name="cartId" value="<?= $cart['id']?>">
                                     <input type="hidden"  name="cartPrice" value="<?= $cart['price']?>">
                                     <button class="btnLess" type="submit">-</button>
@@ -74,9 +74,9 @@ if (!empty($_GET['status'])){
                     <?php endforeach ?>
                 </div>
 
-                <form>
+                <form action="/cart/payment">
                     <br>
-                    <button class="btn-2">Valider</button>
+                    <button class="btn-2" style="width: 220px;height: 30px">Procéder au paiement</button>
                 </form>
             </div>
     </div>
