@@ -6,7 +6,7 @@ class Model {
 
   static function connect()
   {
-    $dsn = "mysql: localhost:3306;dbname=webstore;charset=UTF8";
+    $dsn = "mysql: localhost;dbname=webstore;charset=UTF8";
     $user = "root";
     $pass = "";
     return new \PDO($dsn, $user, $pass);
