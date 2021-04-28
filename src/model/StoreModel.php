@@ -42,7 +42,7 @@ class StoreModel {
       $db = \model\Model::connect();
 
       //Requete Sql
-      $sql= "SELECT p.id, p.name, p.price, p.image,p.image_alt1,p.image_alt2,p.image_alt3, p.spec,c.name AS category_name FROM product AS p INNER JOIN category as c ON (p.category = c.id) WHERE p.id = $id";
+      $sql= "SELECT p.id, p.name, p.price, p.image,p.image_alt1,p.image_alt2,p.image_alt3, p.spec,c.name AS category_name FROM product AS p INNER JOIN category as c ON (p.category = c.id) WHERE p.id =?";
       //Exécution de la requete
       $request = $db->prepare($sql);
       $request->execute(['id'=>$id]);
