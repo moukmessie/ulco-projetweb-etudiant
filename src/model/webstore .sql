@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 28 avr. 2021 à 18:50
+-- Généré le : mer. 28 avr. 2021 à 23:09
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -99,26 +99,6 @@ CREATE TABLE `comment` (
   `id_account` int(10) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `comment`
---
-
-INSERT INTO `comment` (`id`, `content`, `id_product`, `id_account`, `date`) VALUES
-(6, 'Voila un bon cadeau d\'anniversaire ', 5, 13, '2021-04-16'),
-(7, 'je valide', 5, 13, '2021-04-16'),
-(8, 'vive la liberté', 9, 13, '2021-04-16'),
-(9, 'vive la liberté', 9, 13, '2021-04-16'),
-(10, 'Nice', 2, 13, '2021-04-16'),
-(11, 'waouuh', 8, 13, '2021-04-16'),
-(12, 'waouuh', 8, 13, '2021-04-16'),
-(13, 'la bete', 6, 13, '2021-04-16'),
-(14, 'la bete', 6, 13, '2021-04-16'),
-(15, 'pp ', 4, 13, '2021-04-16'),
-(16, 'j\'aime bien', 9, 15, '2021-04-20'),
-(17, 'like', 1, 16, '2021-04-23'),
-(18, 'Cool', 7, 16, '2021-04-26'),
-(19, 'j\'aime bien', 8, 16, '2021-04-28');
 
 -- --------------------------------------------------------
 
