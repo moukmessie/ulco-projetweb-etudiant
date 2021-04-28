@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/ulco-l2-projetweb-etudiant",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "moukm",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
