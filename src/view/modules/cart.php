@@ -69,7 +69,7 @@ if (!empty($_GET['status'])){
 
                     <p>Produit(s) :</p>
                     <?php foreach ($params['cart'] as $cart) :?>
-                    <span style="font-style: italic; "><?= $cart['product_name']?> <span>X</span> <?= $cart['quantity_prod'] ?></span>
+                    <span style="font-style: italic; "><?= $cart['product_name'] ?> <span>X</span> <?= $cart['quantity_prod']?></span>
                         <br>
                     <?php endforeach ?>
                 </div>

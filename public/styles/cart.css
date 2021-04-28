@@ -71,7 +71,7 @@
     padding: 0 32px 32px;
     align-self: flex-start;
 }
-#cart .recap form {
+#cart .recap form, .deliver {
     border-top: 1px solid rgba(0, 0, 0, .2);
     margin-top: 16px;
 }

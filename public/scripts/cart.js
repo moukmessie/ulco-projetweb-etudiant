@@ -31,3 +31,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 })
+
+/*
+ PAYMENT MODAL
+ */
+let card = document.getElementById("payment-card");
+let paypal = document.getElementById("paypal-form");
+let checkPaypal = document.getElementById("paypal");
+let checkCard = document.getElementById("card");
+
+paypal.style.display="none"
+card.style.display="none"
+
+checkPaypal.addEventListener('click',function (){
+    paypal.style.display="block";
+    card.style.display="none"
+})
+checkCard.addEventListener('click',function (){
+    card.style.display="block";
+    paypal.style.display="none"
+})
