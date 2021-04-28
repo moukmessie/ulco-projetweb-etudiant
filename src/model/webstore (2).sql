@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 16 avr. 2021 à 18:48
+-- Généré le : mer. 28 avr. 2021 à 18:50
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -40,8 +40,31 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `firstname`, `lastname`, `mail`, `password`) VALUES
-(13, 'tony', 'gandalf', 'tony@gmail.com', '$2y$10$3Bbp/DZLWdk1odO53hIo3u8mDqrT4DxNtgpKs0WvJFEzPP8Ji4q0y'),
-(14, 'deb', 'gandalf', 'deb@gmail.com', '$2y$10$M57oDPqzQEOKP/I5S1H2IeH0jcYom0XWwquCfX2Hb5HaB/L7.0mrC');
+(16, 'Messie', 'MOUKIMOU', 'moukmessie@gmail.com', '$2y$10$145K3tFhpoTt1OQ2hRsJHumePDt8XRKagEXze7EdGqA6H1C8CYcPW');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(10) NOT NULL,
+  `quantity_prod` int(10) NOT NULL,
+  `id_product` int(10) NOT NULL,
+  `id_account` int(10) NOT NULL,
+  `product_name` varchar(80) NOT NULL,
+  `price` int(11) NOT NULL,
+  `total_amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `cart`
+--
+
+INSERT INTO `cart` (`id`, `quantity_prod`, `id_product`, `id_account`, `product_name`, `price`, `total_amount`) VALUES
+(129, 1, 6, 16, 'Lamborghini Sián FKP 37', 380, 380),
+(132, 1, 7, 16, 'Burj Khalifa', 45, 45);
 
 -- --------------------------------------------------------
 
@@ -91,7 +114,11 @@ INSERT INTO `comment` (`id`, `content`, `id_product`, `id_account`, `date`) VALU
 (12, 'waouuh', 8, 13, '2021-04-16'),
 (13, 'la bete', 6, 13, '2021-04-16'),
 (14, 'la bete', 6, 13, '2021-04-16'),
-(15, 'pp ', 4, 13, '2021-04-16');
+(15, 'pp ', 4, 13, '2021-04-16'),
+(16, 'j\'aime bien', 9, 15, '2021-04-20'),
+(17, 'like', 1, 16, '2021-04-23'),
+(18, 'Cool', 7, 16, '2021-04-26'),
+(19, 'j\'aime bien', 8, 16, '2021-04-28');
 
 -- --------------------------------------------------------
 
@@ -137,6 +164,14 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_account` (`id_account`);
+
+--
 -- Index pour la table `category`
 --
 ALTER TABLE `category`
@@ -165,17 +200,30 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT pour la table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_account`) REFERENCES `account` (`id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
 
 --
 -- Contraintes pour la table `comment`
