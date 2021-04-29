@@ -12,7 +12,7 @@
             </a>
         </p>
     </div>
-    <marquee> Profité de nos offres d'été ʕノ•ᴥ•ʔノ ︵ ┻━┻  la créativité c'est avec lego</marquee>
+
     <div class="brief">
         <div class="brief-image">
             <img src="/public/images/home_1.png" alt="home image bottom">
