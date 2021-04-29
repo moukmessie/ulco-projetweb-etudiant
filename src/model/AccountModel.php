@@ -49,7 +49,7 @@ class AccountModel
         //add sql request
         $sql= "SELECT * FROM account WHERE account.mail='$mail' ";
         $request = $db->prepare($sql);
-        $request->execute(array('mail'=>$mail,'password'=>$password));
+        $request->execute();
 
         return $request->fetch();
 
