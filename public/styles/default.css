@@ -163,12 +163,35 @@ nav a img {
 /* Home styles */
 
 #home .banner {
-  /*background-color: var(--bg-accent);*/
+ /* background-color: var(--bg-accent);*/
+background-size: cover;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+
+
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 50vh;
   padding: 0 32px;
+
+  animation: slideBg 8s linear infinite 0s;
+  animation-timing-function: ease-in-out;
+  background-image: url("/public/images/product_01_alt1.jpg");
+}
+
+@keyframes slideBg {
+  0%{
+    background-image: url("/public/images/product_01_alt2.jpg");
+  }
+  25%{
+    background-image: url("/public/images/product_01_alt3.jpg");
+  }
+  50%{
+    background-image: url("/public/images/product_03.jpg");
+  }
+
 }
 
 #home .banner h2 {
