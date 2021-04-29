@@ -45,7 +45,7 @@ class StoreModel {
       $sql= "SELECT p.id, p.name, p.price, p.image,p.image_alt1,p.image_alt2,p.image_alt3, p.spec,c.name AS category_name FROM product AS p INNER JOIN category as c ON (p.category = c.id) WHERE p.id =?";
       //Exécution de la requete
       $request = $db->prepare($sql);
-      $request->execute(['id'=>$id]);
+      $request->execute(array('id'=>$id));
 
       //Retourne les resultat dans un array
       return $request->fetch();
@@ -78,7 +78,7 @@ class StoreModel {
 
       }
       if ($order!=null){
-          if ($order=='desc'){
+          if ($order==='desc'){
               $sql.='ORDER BY p.price DESC';
           }
           if ($order==="asc") {

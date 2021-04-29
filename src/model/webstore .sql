@@ -33,7 +33,7 @@ CREATE TABLE `account` (
   `lastname` varchar(80) NOT NULL,
   `mail` varchar(80) NOT NULL,
   `password` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `account`
@@ -56,7 +56,7 @@ CREATE TABLE `cart` (
   `product_name` varchar(80) NOT NULL,
   `price` int(11) NOT NULL,
   `total_amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cart`
@@ -75,7 +75,7 @@ INSERT INTO `cart` (`id`, `quantity_prod`, `id_product`, `id_account`, `product_
 CREATE TABLE `category` (
   `id` int(10) NOT NULL,
   `name` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `category`
@@ -98,7 +98,7 @@ CREATE TABLE `comment` (
   `id_product` int(10) NOT NULL,
   `id_account` int(10) NOT NULL,
   `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `product` (
   `image_alt3` varchar(80) NOT NULL,
   `spec` text NOT NULL,
   `category` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `product`
