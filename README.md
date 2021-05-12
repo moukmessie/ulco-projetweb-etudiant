@@ -16,5 +16,5 @@ produits. De plus, un utilisateur peut s'inscrire sur le site, donner son avis s
 retirer des produits dans son panier, et passer une commande.
 
 ```
-L'application sera développée avec PHP, MariaDB et adoptera une architecture Modèle-Vue-Contrôleur.
+L'application est développée avec PHP, MariaDB avec une architecture Modèle-Vue-Contrôleur.
 ```
