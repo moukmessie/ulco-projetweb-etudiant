@@ -1,4 +1,4 @@
-# L2 Informatique - Projet Web
+#  Informatique - Projet Web
 
 ## Description
 
@@ -8,6 +8,4 @@ Développement d'une application simplifiée de e-commerce.
 
  #### MOUKIMOU M'PIKA  Messie 
 
-## Liens utiles
 
-- [Sujet](https://florian-lepretre.herokuapp.com/teaching/projetweb/sujet/)
