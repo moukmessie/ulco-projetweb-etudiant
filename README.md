@@ -3,7 +3,7 @@
 ## Description
 
 Développement d'une application simplifiée de e-commerce.
-Déployé sur Heroku
+- Déployer sur Heroku
 
 ## Auteur
 
