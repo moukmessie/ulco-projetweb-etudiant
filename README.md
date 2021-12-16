@@ -3,10 +3,11 @@
 ## Description
 
 Développement d'une application simplifiée de e-commerce.
+Déployé sur Heroku
 
 ## Auteur
 
- #### MOUKIMOU M'PIKA  Messie 
+
 
 
 #### Objectifs
