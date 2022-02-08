@@ -1,9 +1,10 @@
-<?php
-if (!empty($_GET['status'])){
-    $status =$_GET['status'];
-    if ($status == "add_success") :?>
-        <div class="box info" style="position: relative; left: 68%; "> Produit ajouté dans le panier.</div>
-    <?php endif; }?>
+<?php $status =isset($_GET['status']) ?$_GET['status'] : null;
+    if ($status === "add_success") :?>
+        <div class="box info" style="position: absolute; margin-left: 30px "> Produit ajouté dans le panier.</div>
+    <?php endif;?>
+     <?php if ($status === "login_please") :?>
+        <div class="box error" style="position: absolute; margin-left: 30px "> Vueillez vous connecter pour ajouter ce produit dans le panier.</div>
+    <?php endif; ?>
 
     <div id="product">
     <div>
@@ -46,6 +47,8 @@ if (!empty($_GET['status'])){
             <div class="box error" id="alert" >
                 Quantité maximale autorisée !
             </div>
+            
+           
         </div>
     </div>
     <div>

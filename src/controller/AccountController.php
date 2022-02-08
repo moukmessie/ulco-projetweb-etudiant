@@ -6,7 +6,8 @@ namespace controller;
 
 class AccountController
 {
-    public function account(): void{
+    public function account(): void
+    {
         if (empty($_SESSION['login'])) {
             // Variables à transmettre à la vue
             $params = [
@@ -101,23 +102,23 @@ class AccountController
 
              if ($mail !== $_SESSION['login']['mail'] ){
                     if ( !\model\AccountModel::checkMail($mail)) {
-                        header("Location: /account/infos?status=failed");
+                        header("Location: /account/infos?status=failed_mail_exist");
                     }else{
-                        $response = \model\AccountModel::update($firstname, $lastname, $mail, $id);
+                        \model\AccountModel::update($firstname, $lastname, $mail, $id);
 
                         $_SESSION['login']['firstname'] = $firstname;
                         $_SESSION['login']['lastname'] = $lastname;
                         $_SESSION['login']['mail'] = $mail;
-                        header("Location: /account/infos?status=ok");
+                        header("Location: /account/infos?status=success_infos_updating");
                     }
               }
              else {
-                    $response = \model\AccountModel::update($firstname, $lastname, $mail, $id);
+                     \model\AccountModel::update($firstname, $lastname, $mail, $id);
 
                     $_SESSION['login']['firstname'] = $firstname;
                     $_SESSION['login']['lastname'] = $lastname;
                     $_SESSION['login']['mail'] = $mail;
-                    header("Location: /account/infos?status=ok");
+                    header("Location: /account/infos?status=success_infos_updating");
              }
        }
    }

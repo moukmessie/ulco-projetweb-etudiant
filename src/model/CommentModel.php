@@ -6,14 +6,14 @@ namespace model;
 
 class CommentModel
 {
-    static function insertComment(string $content,int $id_product,int $id_account){
+    static function insertComment(string $content,int $id_product,int $id_account,$date){
         //connexion to database
         $db = \model\Model::connect();
 
         //add sql request
-        $sql= "INSERT INTO comment (content, date, id_product, id_account) VALUES (:content, NOW(), :id_product, :id_account)";        //Execution sql request
+        $sql= "INSERT INTO comment (content, id_product, id_account,date) VALUES (:content,  :id_product, :id_account, :date)";        //Execution sql request
         $request= $db->prepare($sql);
-        $request->execute(compact('content','id_product','id_account'));
+        $request->execute(compact('content','id_product','id_account', 'date'));
     }
 
     static function listComment(int $id_product):array

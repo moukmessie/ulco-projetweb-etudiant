@@ -17,7 +17,7 @@
            $_SESSION['login']['firstname'] ." ".$_SESSION['login']['lastname']?>
        </a>
 
-       <a href="/cart">PANIER <?php if($_SESSION['cartContent']!=0) {?><small  style="background: #999; border-radius: 30px; padding: 2px"><?= $_SESSION['cartContent']  ?></small><?php }?></a>
+       <a href="/cart">PANIER <small  style="background: #999; border-radius: 30px; padding: 2px"><?= $total = isset($_SESSION['cartContent'])>0 ? $_SESSION['cartContent'] : null  ?></small></a>
        <a href="/account/logout">DÉCONNEXION</a>
 
    <?php else: ?>

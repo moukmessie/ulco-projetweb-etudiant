@@ -9,20 +9,23 @@ class CommentController
    public function postComment(int $id_product){
        $content =null;
        $id_account =null;
-
-       if (!empty($_POST['comment'])) {
+       $date = date("d - m - Y");
+        if (!empty($_SESSION['login'])) {
+             if (!empty($_POST['comment']) and !empty($_SESSION['login']) ) {
           $content= htmlspecialchars($_POST['comment']);
-       }
-       if (!empty($_SESSION['login'])) {
            $id_account = $_SESSION['login']['id'];
        }
+   
 
-      $comment = \model\CommentModel::insertComment($content,$id_product,$id_account);
+       \model\CommentModel::insertComment($content,$id_product,$id_account,$date);
       // var_dump($content,$id_account,$id_product);
 
-           header("Location: /store/$id_product");
+           header("Location: /store/$id_product?status=comment_posted");
            exit();
 
+        }
+  
+     
    }
 
 }

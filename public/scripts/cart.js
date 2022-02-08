@@ -8,24 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // more product
     for (let i = 0; i< btnMore.length;i++) {
-        // quatityId[i].value = qteMax;
-        ;
         btnMore[i].addEventListener('click', function () {
             // console.log("clique");
 
-            if (quatityId[i].value  < qteMax) {
+            if (parseInt(quatityId[i].value)  < qteMax) {
                 quatityId[i].value = parseInt(quatityId[i].value) + 1;
-                console.log(qte[i].textContent = quatityId[i].value)
+            }else{
+                btnMore[i].disabled=true;
             }
         })
     }
-
     //less product
     for (let i = 0; i< btnless.length;i++) {
         btnless[i].addEventListener('click', function () {
-            if (quatityId[i].value  > 1) {
+            if (parseInt(quatityId[i].value ) > 1) {
                 quatityId[i].value = parseInt(quatityId[i].value) - 1;
-                console.log(qte[i].textContent = quatityId[i].value)
+            }else{
+                btnless[i].disabled=true;
             }
         })
     }

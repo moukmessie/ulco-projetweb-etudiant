@@ -21,7 +21,7 @@ if (!empty($_GET['status'])){
                         <div><img style=" float: left; width: 120px;" src="/public/images/<?= $cart['image']?>" alt=""></div>
                         <td >
                             <div class="category" style="width: 128px;"><?= $cart['name']?></div>
-                            <div class="product" "><?= $cart['product_name']?></div>
+                            <div class="product"><?= $cart['product_name']?></div>
                         </td>
                     </th>
 

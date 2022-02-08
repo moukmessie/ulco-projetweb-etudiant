@@ -12,6 +12,12 @@ class StoreController {
     // Communications avec la base de données
     $categories = \model\StoreModel::listCategories();
       $products= \model\StoreModel:: listProducts();
+      if (!empty($_SESSION['login'])) {
+            $id=$_SESSION['login']['id'];
+            // Variables à transmettre à la vue
+            $cart=\model\CartModel::listcart($id);
+            $_SESSION['cartContent']=count($cart);
+     }
 
     // Variables à transmettre à la vue
     $params = array(
@@ -25,13 +31,20 @@ class StoreController {
       \view\Template::render($params);
 
   }
+ 
   public function product(int $id):void
   {
+
+      $id_users=$_SESSION['login']['id'];
+      // Variables à transmettre à la vue
+      $cart=\model\CartModel::listcart($id_users);
+      $_SESSION['cartContent']=count($cart);
+    
       $product = \model\StoreModel::infoProduct($id);
       $comment=\model\CommentModel::listComment($id);
 
 
-      if( $product!=null){
+      if( $product){
           $params = array(
               "title" => "Info product",
               "module" => "product.php",

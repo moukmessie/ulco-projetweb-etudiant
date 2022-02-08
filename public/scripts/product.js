@@ -29,7 +29,7 @@
             quantity.value=qte.textContent;
             // console.log(parseInt(qte.textContent));
             if (qte.textContent == qteMax) {
-                warn.style.visibility = 'visible'
+                warn.style.visibility = 'visible';
 
             }
         }
@@ -39,7 +39,7 @@
         if (qte.textContent > 1) {
             qte.textContent = parseInt(qte.textContent) - 1;
             quantity.value=qte.textContent;
-            warn.style.visibility = 'hidden'
+            warn.style.visibility = 'hidden';
         }
     })
 
