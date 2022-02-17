@@ -7,7 +7,7 @@ Développement d'une application simplifiée de e-commerce.
 
 ## Auteur
 
-
+### Messie MOUKIMOU
 
 
 #### Objectifs
@@ -19,3 +19,8 @@ retirer des produits dans son panier, et passer une commande.
 ```
 L'application est développée avec PHP, MariaDB avec une architecture Modèle-Vue-Contrôleur.
 ```
+## Techno
+- PHP
+- Mysql (dev)
+- Sqlite (prod)
+.....
